@@ -7,7 +7,7 @@
     Library: books, orders, readers, authors
     Save all Library data to files
 
-    >Initialisation of the Library in **init_and_save.rb**
+>Initialisation of the Library in ** init_and_save.rb **
 
 =====
 
@@ -20,4 +20,4 @@
     5. How many people ordered one of the three most popular books
 
 
-    >Result of tests in **load_and_test.rb**
+>Result of tests in ** load_and_test.rb **
