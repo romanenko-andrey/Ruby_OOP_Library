@@ -10,9 +10,9 @@ LIBRARY.add_book('Ernest Hemingway','The Sun Also Rises')
 LIBRARY.add_book('L. Frank Baum','The Wonderful Wizard of Oz')
 LIBRARY.add_book('James Fenimore Cooper','The Last of the Mohicans')
 
-LIBRARY.new_reader('Andrey', {:email=>'andrey@in.ua'})
-LIBRARY.new_reader('Bob', {:email=>'bob@in.ua', :city=>'Kiev'})
-LIBRARY.new_reader('Jane', {:email=>'jane@in.ua', :city=>'Dnepr', :street=>'12-th line', :house=>12})
+LIBRARY.new_reader('Andrey', email:'andrey@in.ua')
+LIBRARY.new_reader('Bob', email:'bob@in.ua', city:'Kiev')
+LIBRARY.new_reader('Jane', email:'jane@in.ua', city:'Dnepr', street:'12-th line', house:12)
 
 LIBRARY.new_order('The Old Man and the Sea', 'Bob')
 LIBRARY.new_order('The Sun Also Rises', 'Jane')

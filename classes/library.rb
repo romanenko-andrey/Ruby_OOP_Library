@@ -1,32 +1,13 @@
+require_relative 'catalogues'
 require_relative 'reader'
-require_relative 'author'
-require_relative 'book'
 require_relative 'order'
 
-class Library
-  attr_accessor :books, :orders, :readers, :authors
+class Library < Catalogues
+  attr_accessor  :orders, :readers
 
   def initialize
-    @books, @orders, @readers, @authors = [], [], [], []
-  end
-
-  def add_book(author, book_title)
-    add_book_if_no_exist(author, book_title)
-    add_author_if_no_exist(author, book_title)
-  end
-
-  def add_book_if_no_exist(author, book_title)
-    return if @books.find {|book| book.title == book_title && book.author == author}
-    @books << Book.new(author, book_title)
-  end
-
-  def add_author_if_no_exist(author, book_title)
-    exist = @authors.find_index {|present_author| present_author.name == author}
-    if exist
-      @authors[exist].biography << book_title
-    else
-      @authors << Author.new(author, [book_title])
-    end
+    @orders, @readers = [], []
+    super
   end
 
   def new_reader(name, details)
@@ -37,8 +18,10 @@ class Library
   def new_order(book_title, reader_name)
     the_book = @books.find{|book| book.title == book_title}
     raise "The book \"#{book_title}\" is not exists in the library!"  unless the_book
+
     the_reader = @readers.find{|reader| reader.name == reader_name}
     raise "The reader \"#{reader_name}\" does not registred in the library!" unless the_reader
+
   rescue => error
     puts 'Error in the order! ' + error.message
   else
